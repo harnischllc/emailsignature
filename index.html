@@ -6,7 +6,7 @@
     <title>Email Signature Generator | Kellenberg Memorial High School</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --primary: #2c3e94;
@@ -26,7 +26,7 @@
         }
 
         body {
-            font-family: 'Open Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-family: 'Noto Sans', -apple-system, BlinkMacSystemFont, sans-serif;
             background: var(--bg);
             color: var(--text);
             line-height: 1.6;
@@ -57,7 +57,7 @@
         }
 
         .header-text h1 {
-            font-family: 'Merriweather', Georgia, serif;
+            font-family: 'Lemon Milk Pro', 'Noto Sans', sans-serif;
             font-size: 1.5rem;
             font-weight: 700;
             margin-bottom: 0.25rem;
@@ -99,7 +99,7 @@
             padding: 1rem 1.5rem;
             background: var(--primary);
             color: white;
-            font-family: 'Merriweather', Georgia, serif;
+            font-family: 'Lemon Milk Pro', 'Noto Sans', sans-serif;
             font-size: 1.1rem;
             font-weight: 700;
         }
@@ -213,7 +213,7 @@
         }
 
         .signature-preview {
-            font-family: Arial, sans-serif;
+            font-family: 'Noto Sans', Arial, sans-serif;
             font-size: 14px;
             line-height: 1.4;
             color: #333333;
@@ -301,7 +301,7 @@
         }
 
         .instructions h3 {
-            font-family: 'Merriweather', Georgia, serif;
+            font-family: 'Lemon Milk Pro', 'Noto Sans', sans-serif;
             color: var(--primary);
             margin-bottom: 1rem;
             font-size: 1.1rem;
@@ -471,9 +471,7 @@
 
         const CONFIG = {
             logos: {
-                // PENDING: swap url to the hosted 40th Anniversary logo when the
-                // asset arrives. Falls back to the seal until then.
-                anniversary: { url: `${ASSETS}/KMHSseal.png`, width: 80 },
+                anniversary: { url: `${ASSETS}/KM40th.png`, width: 110 },
                 seal: { url: `${ASSETS}/KMHSseal.png`, width: 80 }
             },
             primaryColor: '#2c3e94',
@@ -553,7 +551,7 @@
             ).join('\n                ');
 
             return `
-<table cellpadding="0" cellspacing="0" border="0" style="font-family:Arial,sans-serif;font-size:14px;line-height:1.5;color:#333333;">
+<table cellpadding="0" cellspacing="0" border="0" style="font-family:'Noto Sans',Arial,sans-serif;font-size:14px;line-height:1.5;color:#333333;">
     <tr>
         <td style="padding-right:15px;vertical-align:top;border-right:3px solid ${CONFIG.goldColor};">
             <img src="${logo.url}" alt="Kellenberg Memorial High School" width="${logo.width}" style="display:block;border:0;">

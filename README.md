@@ -42,7 +42,7 @@ The `CONFIG` object at the top of the `<script>` section in `index.html` contain
 - Social media links and icon URLs
 - Brand colors
 
-The 40th Anniversary logo URL currently points at the seal as a placeholder; swap it in `CONFIG.logos.anniversary` when the asset is hosted.
+Hosted assets: `KM40th.png` (40th Anniversary, displays 110px wide), `KMHSseal.png` (seal, displays 80px wide), `KMfirebird.png` (KM athletic mark, spare), and the three social icons. All are trimmed and saved at 2x display size for retina.
 
 ## Customization
 
