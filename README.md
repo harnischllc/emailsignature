@@ -1,61 +1,68 @@
 # Email Signature Generator
 
-A client-side email signature generator for St. Edward Church & School staff.
+A client-side email signature generator for Kellenberg Memorial High School faculty and staff.
 
 ## Features
 
-- Church/School toggle (auto-switches phone, fax, and address)
-- Clergy titles (Fr., Dcn., Msgr., Sr., Br.) plus standard honorifics
+- Logo toggle: 40th Anniversary logo (default) or School Seal
+- School and clergy titles (Mr., Mrs., Miss, Ms., Dr., Bro., Fr., Dcn.)
 - Optional credentials field
-- Extension field for direct lines
-- Auto-includes both websites and social media links
+- Optional extension on the main line (516) 292-0200
+- Auto-includes kellenberg.org and social media icons (Facebook, Instagram, YouTube)
 - Copy to clipboard or download HTML file
 - Live preview
+- Gmail setup instructions built into the page
 
-## Deployment on Render.com
+## Hosting
 
-1. Push to GitHub
-2. Go to render.com and create a new Static Site
-3. Connect your GitHub repo
-4. Build command: leave empty
-5. Publish directory: `.`
-6. Deploy
+The page is a single self-contained `index.html`. It is intended to live on the school's internal Google Site, either:
+
+1. **Embed by URL**: host `index.html` anywhere (Render static site, GitHub Pages on a public repo, etc.), then in Google Sites use Insert > Embed > By URL.
+2. **Link out**: host it the same way and link to it from the Site.
+
+Pasting the full file into an Embed code block also works if it stays under the embed size limit.
+
+Note: some Google Sites embeds block clipboard access inside the iframe. The page includes a Download HTML fallback with instructions, but test the Copy button in the embedded context before rollout.
+
+## Image hosting (important)
+
+Gmail strips base64/data-URI images from signatures, so every image in the signature must be a public HTTPS URL. All logos and social icons are hosted in the public assets repo:
+
+`https://github.com/harnischllc/kellenberg-signature-assets`
+
+referenced via `raw.githubusercontent.com` URLs. Keep that repo public or signature images will break in recipients' inboxes.
 
 ## Configuration
 
-The `CONFIG` object in the JavaScript section contains:
+The `CONFIG` object at the top of the `<script>` section in `index.html` contains:
 
-- Logo URL
-- Phone numbers, addresses, fax for Church and School
-- Website URLs
-- Social media links
+- Logo URLs and display widths (40th Anniversary and School Seal)
+- Phone, address
+- Website URL
+- Social media links and icon URLs
 - Brand colors
 
-To change any of these, edit the CONFIG object near line 280 in `index.html`.
+The 40th Anniversary logo URL currently points at the seal as a placeholder; swap it in `CONFIG.logos.anniversary` when the asset is hosted.
 
 ## Customization
 
-### Adding Titles/Honorifics
+### Titles/Honorifics
 
 Edit the `<select id="honorific">` dropdown in the HTML.
 
-### Changing Colors
+### Colors
 
 CSS variables at the top of the `<style>` block:
-- `--navy`: #003764
-- `--dark-green`: #005921
-- `--green`: #00843d
-- `--gold`: #daaa00
-- `--off-white`: #eef4f1
+
+- `--primary`: #2c3e94 (Kellenberg blue)
+- `--primary-hover`: #4359c7 (link/button hover)
+- `--gold`: #ffba00
+
+The signature itself uses `CONFIG.primaryColor` and `CONFIG.goldColor`.
 
 ### Social Icons
 
-Social icons are embedded as base64 SVGs in St. Edward green (#005921) for email client compatibility. The source SVG files are also in this repo:
-- `facebook-svgrepo-com.svg`
-- `instagram-svgrepo-com.svg`
-- `youtube-168-svgrepo-com.svg`
-
-To change them, update the `SOCIAL_ICONS` object in the JavaScript.
+Icons are 80x80 PNGs in Kellenberg blue (#2c3e94), displayed at 20x20, hosted in the assets repo. To change them, update the `CONFIG.socials` icon URLs.
 
 ## Browser Support
 

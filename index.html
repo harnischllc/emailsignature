@@ -3,24 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Email Signature Generator | St. Edward Church & School</title>
+    <title>Email Signature Generator | Kellenberg Memorial High School</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #005921;
-            --primary-dark: #004518;
-            --navy: #003764;
-            --green: #00843d;
-            --light-gold: #ddcc71;
-            --gold: #daaa00;
-            --bg: #eef4f1;
+            --primary: #2c3e94;
+            --primary-hover: #4359c7;
+            --gold: #ffba00;
+            --bg: #eef0f8;
             --white: #ffffff;
             --text: #333333;
             --text-muted: #666666;
-            --border: #c5d4c9;
-            --success: #005921;
+            --border: #c7cee3;
         }
 
         * {
@@ -37,6 +33,14 @@
             min-height: 100vh;
         }
 
+        a {
+            color: var(--primary);
+        }
+
+        a:hover {
+            color: var(--primary-hover);
+        }
+
         .header {
             background: var(--primary);
             color: white;
@@ -44,11 +48,11 @@
             display: flex;
             align-items: center;
             gap: 1.5rem;
-            border-bottom: 4px solid var(--light-gold);
+            border-bottom: 4px solid var(--gold);
         }
 
         .header-logo {
-            width: 80px;
+            width: 56px;
             height: auto;
         }
 
@@ -86,7 +90,7 @@
         .card {
             background: var(--white);
             border-radius: 8px;
-            box-shadow: 0 2px 12px rgba(0, 89, 33, 0.08);
+            box-shadow: 0 2px 12px rgba(44, 62, 148, 0.08);
             border: 1px solid var(--border);
             overflow: hidden;
         }
@@ -137,17 +141,11 @@
         input:focus, select:focus {
             outline: none;
             border-color: var(--primary);
-            box-shadow: 0 0 0 3px rgba(0, 89, 33, 0.15);
+            box-shadow: 0 0 0 3px rgba(44, 62, 148, 0.15);
         }
 
         input::placeholder {
             color: #999;
-        }
-
-        .form-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1rem;
         }
 
         .form-row-3 {
@@ -156,21 +154,21 @@
             gap: 1rem;
         }
 
-        .phone-section {
+        .option-section {
             background: var(--bg);
             border-radius: 6px;
             padding: 1rem;
             margin-bottom: 1.25rem;
         }
 
-        .phone-section label {
+        .option-section label {
             margin-bottom: 0.75rem;
         }
 
         .radio-group {
             display: flex;
             gap: 1.5rem;
-            margin-bottom: 0.75rem;
+            margin-bottom: 0;
         }
 
         .radio-label {
@@ -179,6 +177,7 @@
             gap: 0.5rem;
             cursor: pointer;
             font-weight: normal;
+            margin-bottom: 0;
         }
 
         .radio-label input[type="radio"] {
@@ -199,15 +198,10 @@
             width: 120px;
         }
 
-        .fax-notice {
+        .phone-note {
             margin-top: 0.5rem;
             font-size: 0.85rem;
             color: var(--text-muted);
-            display: none;
-        }
-
-        .fax-notice.visible {
-            display: block;
         }
 
         .preview-area {
@@ -223,6 +217,10 @@
             font-size: 14px;
             line-height: 1.4;
             color: #333333;
+        }
+
+        .signature-preview a:hover {
+            color: var(--primary-hover) !important;
         }
 
         .button-group {
@@ -252,7 +250,7 @@
         }
 
         .btn-primary:hover {
-            background: var(--primary-dark);
+            background: var(--primary-hover);
         }
 
         .btn-secondary {
@@ -262,7 +260,8 @@
         }
 
         .btn-secondary:hover {
-            background: var(--primary);
+            background: var(--primary-hover);
+            border-color: var(--primary-hover);
             color: white;
         }
 
@@ -298,7 +297,7 @@
             background: var(--white);
             border-radius: 8px;
             border: 1px solid var(--border);
-            box-shadow: 0 2px 12px rgba(0, 89, 33, 0.08);
+            box-shadow: 0 2px 12px rgba(44, 62, 148, 0.08);
         }
 
         .instructions h3 {
@@ -316,13 +315,6 @@
             margin-bottom: 0.5rem;
         }
 
-        .instructions code {
-            background: var(--bg);
-            padding: 0.15rem 0.4rem;
-            border-radius: 3px;
-            font-size: 0.9em;
-        }
-
         .hidden-signature {
             position: absolute;
             left: -9999px;
@@ -338,10 +330,10 @@
 </head>
 <body>
     <header class="header">
-        <img src="https://raw.githubusercontent.com/eharnischStEdword/emailsignature/main/STElogo.png" alt="St. Edward" class="header-logo">
+        <img src="https://raw.githubusercontent.com/harnischllc/kellenberg-signature-assets/main/KMHSseal.png" alt="Kellenberg Memorial High School" class="header-logo">
         <div class="header-text">
             <h1>Email Signature Generator</h1>
-            <p>St. Edward Church & School</p>
+            <p>Kellenberg Memorial High School</p>
         </div>
     </header>
 
@@ -360,11 +352,9 @@
                                 <option value="Miss">Miss</option>
                                 <option value="Ms.">Ms.</option>
                                 <option value="Dr.">Dr.</option>
-                                <option value="Very Rev.">Very Rev.</option>
+                                <option value="Bro.">Bro.</option>
                                 <option value="Fr.">Fr.</option>
                                 <option value="Dcn.">Dcn.</option>
-                                <option value="Rev. Mr.">Rev. Mr.</option>
-                                <option value="Msgr.">Msgr.</option>
                             </select>
                         </div>
                         <div class="form-group">
@@ -384,35 +374,39 @@
 
                     <div class="form-group">
                         <label for="position">Title / Position <span class="required">*</span></label>
-                        <input type="text" id="position" placeholder="First Grade, ELA, etc." required oninput="updatePreview()">
+                        <input type="text" id="position" placeholder="English Department, Campus Ministry, etc." required oninput="updatePreview()">
                     </div>
 
                     <hr class="divider">
 
-                    <div class="phone-section">
-                        <label>Phone <span class="required">*</span></label>
+                    <div class="option-section">
+                        <label>Logo</label>
                         <div class="radio-group">
                             <label class="radio-label">
-                                <input type="radio" name="location" value="church" checked>
-                                Church (615) 833-5520
+                                <input type="radio" name="logo" value="anniversary" checked>
+                                40th Anniversary
                             </label>
                             <label class="radio-label">
-                                <input type="radio" name="location" value="school">
-                                School (615) 833-5770
+                                <input type="radio" name="logo" value="seal">
+                                School Seal
                             </label>
                         </div>
-                        <div class="ext-field">
+                    </div>
+
+                    <div class="option-section">
+                        <label>Phone</label>
+                        <div class="ext-field" style="margin-top:0;">
                             <label for="extension">Extension (optional)</label>
-                            <input type="text" id="extension" placeholder="123" oninput="updatePreview()">
+                            <input type="text" id="extension" oninput="updatePreview()">
                         </div>
-                        <div id="faxNotice" class="fax-notice">
-                            School Fax (615) 833-9739 will be included automatically.
+                        <div class="phone-note">
+                            The main line (516) 292-0200 is included automatically.
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label for="email">Email <span class="required">*</span></label>
-                        <input type="email" id="email" placeholder="jsmith@stedward.org" required oninput="updatePreview()">
+                        <input type="email" id="email" placeholder="jsmith@kellenberg.org" required oninput="updatePreview()">
                     </div>
                 </div>
             </div>
@@ -443,37 +437,25 @@
         </div>
 
         <div class="instructions">
-            <h3>How to Add Your Signature in Outlook</h3>
-            
+            <h3>How to Add Your Signature in Gmail</h3>
+
             <p style="margin-bottom: 1rem;"><strong>Step 1:</strong> Click <strong>Copy Signature</strong> above. You may need to grant your browser permission to access the clipboard.</p>
-            
-            <p style="margin-bottom: 0.5rem;"><strong>Step 2:</strong> Follow the instructions for your version of Outlook:</p>
-            
+
+            <p style="margin-bottom: 0.5rem;"><strong>Step 2:</strong> Add it to Gmail:</p>
+
             <div style="background: var(--bg); padding: 1rem; border-radius: 6px; margin: 1rem 0;">
-                <p style="font-weight: 600; margin-bottom: 0.75rem;">New Outlook (2024+)</p>
                 <ol style="margin-left: 1.25rem;">
-                    <li>Click the <strong>Settings</strong> gear icon (top right)</li>
-                    <li>Select <strong>Accounts</strong> → <strong>Signatures</strong></li>
-                    <li>Click <strong>+ New signature</strong> and give it a name</li>
-                    <li>Click in the signature text box and paste (Ctrl+V or Cmd+V)</li>
-                    <li>Under "Select default signatures," choose your new signature for <strong>New messages</strong> and <strong>Replies/forwards</strong></li>
-                    <li>Click <strong>Save</strong></li>
+                    <li>Open Gmail and click the <strong>Settings</strong> gear icon (top right), then <strong>See all settings</strong></li>
+                    <li>Under <strong>General</strong>, scroll to <strong>Signature</strong></li>
+                    <li>Click <strong>Create new</strong>, give it a name (for example, "Kellenberg"), and paste into the signature box (Ctrl+V or Cmd+V)</li>
+                    <li>Under <strong>Signature defaults</strong>, choose your new signature for new emails and for replies/forwards</li>
+                    <li>Scroll to the bottom and click <strong>Save Changes</strong></li>
                 </ol>
             </div>
-            
-            <div style="background: var(--bg); padding: 1rem; border-radius: 6px; margin: 1rem 0;">
-                <p style="font-weight: 600; margin-bottom: 0.75rem;">Classic Outlook (Desktop)</p>
-                <ol style="margin-left: 1.25rem;">
-                    <li>Click <strong>New Email</strong> to open a compose window</li>
-                    <li>In the Message tab, click <strong>Signature</strong> → <strong>Signatures...</strong></li>
-                    <li>Click <strong>New</strong>, enter a name, and click <strong>OK</strong></li>
-                    <li>Click in the "Edit signature" box and paste (Ctrl+V)</li>
-                    <li>Under "Choose default signature," select your new signature for <strong>New messages</strong> and <strong>Replies/forwards</strong></li>
-                    <li>Click <strong>OK</strong></li>
-                </ol>
-            </div>
-            
-            <p style="margin-top: 1rem; font-size: 0.9rem; color: var(--text-muted);"><strong>Note:</strong> If pasting doesn't preserve formatting in Classic Outlook for Windows, use the <strong>Download HTML</strong> button instead. Save the file to your Signatures folder (typically <code>C:\Users\[YourName]\AppData\Roaming\Microsoft\Signatures</code>), then select it in Outlook.</p>
+
+            <p style="margin-bottom: 1rem; font-size: 0.9rem; color: var(--text-muted);"><strong>On your phone:</strong> the Gmail app has its own mobile signature setting. If you don't create one in the app, messages sent from your phone use the signature you set up on your computer.</p>
+
+            <p style="font-size: 0.9rem; color: var(--text-muted);"><strong>If the Copy button doesn't work:</strong> click <strong>Download HTML</strong>, open the downloaded file in your browser, select everything (Ctrl+A or Cmd+A), copy it, and paste that into the Gmail signature box.</p>
         </div>
     </main>
 
@@ -483,40 +465,32 @@
 
     <script>
         // Configuration
+        // All signature images must live at public HTTPS URLs. Gmail strips
+        // base64/data-URI images from signatures, so nothing here is inlined.
+        const ASSETS = 'https://raw.githubusercontent.com/harnischllc/kellenberg-signature-assets/main';
+
         const CONFIG = {
-            logoUrl: 'https://raw.githubusercontent.com/eharnischStEdword/emailsignature/main/STElogo.png',
-            primaryColor: '#005921',
-            goldColor: '#ddcc71',
-            locations: {
-                church: {
-                    phone: '(615) 833-5520',
-                    address: '188 Thompson Lane',
-                    cityStateZip: 'Nashville, TN 37211',
-                    fax: null
-                },
-                school: {
-                    phone: '(615) 833-5770',
-                    address: '190 Thompson Lane',
-                    cityStateZip: 'Nashville, TN 37211',
-                    fax: '(615) 833-9739'
-                }
+            logos: {
+                // PENDING: swap url to the hosted 40th Anniversary logo when the
+                // asset arrives. Falls back to the seal until then.
+                anniversary: { url: `${ASSETS}/KMHSseal.png`, width: 80 },
+                seal: { url: `${ASSETS}/KMHSseal.png`, width: 80 }
+            },
+            primaryColor: '#2c3e94',
+            goldColor: '#ffba00',
+            school: {
+                phone: '(516) 292-0200',
+                address: '1400 Glenn Curtiss Blvd.',
+                cityStateZip: 'Uniondale, NY 11553'
             },
             websites: [
-                { display: 'stedward.org', url: 'https://stedward.org' },
-                { display: 'ses.stedward.org', url: 'https://ses.stedward.org' }
+                { display: 'kellenberg.org', url: 'https://www.kellenberg.org' }
             ],
             socials: {
-                facebook: 'https://www.facebook.com/stedwardschool',
-                instagram: 'https://www.instagram.com/stedwardcommunity/',
-                youtube: 'https://www.youtube.com/@StEdwardChurchAndSchool'
+                facebook: { url: 'https://www.facebook.com/KellenbergMemorialHighSchool/', icon: `${ASSETS}/facebook.png` },
+                instagram: { url: 'https://www.instagram.com/kellenberg', icon: `${ASSETS}/instagram.png` },
+                youtube: { url: 'https://www.youtube.com/channel/UCB0LSmz6i3MMXNyDNoxGyKA', icon: `${ASSETS}/youtube.png` }
             }
-        };
-
-        // Social icon SVGs (inline for email compatibility) - St. Edward green
-        const SOCIAL_ICONS = {
-            facebook: 'data:image/svg+xml;base64,PHN2ZyBmaWxsPSIjMDA1OTIxIiB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNMTIgMi4wMzk5OEM2LjUgMi4wMzk5OCAyIDYuNTI5OTggMiAxMi4wNkMyIDE3LjA2IDUuNjYgMjEuMjEgMTAuNDQgMjEuOTZWMTQuOTZINy45VjEyLjA2SDEwLjQ0VjkuODQ5OThDMTAuNDQgNy4zMzk5OCAxMS45MyA1Ljk1OTk4IDE0LjIyIDUuOTU5OThDMTUuMzEgNS45NTk5OCAxNi40NSA2LjE0OTk4IDE2LjQ1IDYuMTQ5OThWOC42MTk5OEgxNS4xOUMxMy45NSA4LjYxOTk4IDEzLjU2IDkuMzg5OTggMTMuNTYgMTAuMThWMTIuMDZIMTYuMzRMMTUuODkgMTQuOTZIMTMuNTZWMjEuOTZDMTUuOTE2NCAyMS41ODc4IDE4LjA2MjIgMjAuMzg1NSAxOS42MDk5IDE4LjU3QzIxLjE1NzYgMTYuNzU0NiAyMi4wMDU0IDE0LjQ0NTYgMjIgMTIuMDZDMjIgNi41Mjk5OCAxNy41IDIuMDM5OTggMTIgMi4wMzk5OFoiLz48L3N2Zz4K',
-            instagram: 'data:image/svg+xml;base64,PHN2ZyBmaWxsPSIjMDA1OTIxIiB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik04LDIgTDE2LDIgQzE5LjMxMzcwODUsMiAyMiw0LjY4NjI5MTUgMjIsOCBMMjIsMTYgQzIyLDE5LjMxMzcwODUgMTkuMzEzNzA4NSwyMiAxNiwyMiBMOCwyMiBDNC42ODYyOTE1LDIyIDIsMTkuMzEzNzA4NSAyLDE2IEwyLDggQzIsNC42ODYyOTE1IDQuNjg2MjkxNSwyIDgsMiBaIE04LDQgQzUuNzkwODYxLDQgNCw1Ljc5MDg2MSA0LDggTDQsMTYgQzQsMTguMjA5MTM5IDUuNzkwODYxLDIwIDgsMjAgTDE2LDIwIEMxOC4yMDkxMzksMjAgMjAsMTguMjA5MTM5IDIwLDE2IEwyMCw4IEMyMCw1Ljc5MDg2MSAxOC4yMDkxMzksNCAxNiw0IEw4LDQgWiBNMTIsMTcgQzkuMjM4NTc2MjUsMTcgNywxNC43NjE0MjM3IDcsMTIgQzcsOS4yMzg1NzYyNSA5LjIzODU3NjI1LDcgMTIsNyBDMTQuNzYxNDIzNyw3IDE3LDkuMjM4NTc2MjUgMTcsMTIgQzE3LDE0Ljc2MTQyMzcgMTQuNzYxNDIzNywxNyAxMiwxNyBaIE0xMiwxNSBDMTMuNjU2ODU0MiwxNSAxNSwxMy42NTY4NTQyIDE1LDEyIEMxNSwxMC4zNDMxNDU4IDEzLjY1Njg1NDIsOSAxMiw5IEMxMC4zNDMxNDU4LDkgOSwxMC4zNDMxNDU4IDksMTIgQzksMTMuNjU2ODU0MiAxMC4zNDMxNDU4LDE1IDEyLDE1IFogTTE3LDggQzE2LjQ0NzcxNTMsOCAxNiw3LjU1MjI4NDc1IDE2LDcgQzE2LDYuNDQ3NzE1MjUgMTYuNDQ3NzE1Myw2IDE3LDYgQzE3LjU1MjI4NDcsNiAxOCw2LjQ0NzcxNTI1IDE4LDcgQzE4LDcuNTUyMjg0NzUgMTcuNTUyMjg0Nyw4IDE3LDggWiIvPjwvc3ZnPgo=',
-            youtube: 'data:image/svg+xml;base64,PHN2ZyBmaWxsPSIjMDA1OTIxIiB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgLTMgMjAgMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTcuOTg4NDMyLDkuNTg1ODggTDcuOTg4NDMyLDMuOTc0MjUgQzkuOTgwNjM4LDQuOTExNjggMTEuNTIzNjAyLDUuODE3MiAxMy4zNDg0NjMsNi43OTM1MyBDMTEuODQzMzUxLDcuNjI4MjQgOS45ODA2MzgsOC41NjQ2OCA3Ljk4ODQzMiw5LjU4NTg4IE0xOS4wOTA5OTgsMS4xODI4OSBDMTguNzQ3MzQzLDAuNzMwMTMgMTguMTYxNjM0LDAuMzc4MDkgMTcuNTM4MDczLDAuMjYxNDEgQzE1LjcwNTI0MywtMC4wODY2NCA0LjI3MDk3NCwtMC4wODc2MyAyLjQzOTE0MSwwLjI2MTQxIEMxLjkzOTA5NywwLjM1NTE1IDEuNDkzODM5LDAuNTgxNTMgMS4xMTEzMzUsMC45MzM1NyBDLTAuNTAwMzYsMi40Mjk0NyAwLjAwNDY2NCwxMC40NTE1MSAwLjM5MzE0NSwxMS43NTA5NiBDMC41NTY1MDUsMTIuMzEzNDIgMC43Njc2NzksMTIuNzE5MzEgMS4wMzM2MzksMTIuOTg1NTggQzEuMzc2Mjk4LDEzLjMzNzYxIDEuODQ1NDYzLDEzLjU3OTk1IDIuMzg0MzU1LDEzLjY4ODY1IEMzLjg5MzQ1MSwxNC4wMDA4IDExLjY2ODAzNywxNC4xNzUzMiAxNy41MDYxOTgsMTMuNzM1NTIgQzE4LjA0NDA5NCwxMy42NDE3OCAxOC41MjAyMzEsMTMuMzkxNDcgMTguODk1NzYyLDEzLjAyNDQ3IEMyMC4zODU5MzIsMTEuNTM0NTUgMjAuMjg0MzMsMy4wNjE3NCAxOS4wOTA5OTgsMS4xODI4OSIvPjwvc3ZnPgo='
         };
 
         // Get form elements
@@ -530,8 +504,7 @@
             email: document.getElementById('email')
         };
 
-        const locationRadios = document.querySelectorAll('input[name="location"]');
-        const faxNotice = document.getElementById('faxNotice');
+        const logoRadios = document.querySelectorAll('input[name="logo"]');
 
         // Update preview on any input change
         Object.values(inputs).forEach(input => {
@@ -540,11 +513,8 @@
             input.addEventListener('keyup', updatePreview);
         });
 
-        locationRadios.forEach(radio => {
-            radio.addEventListener('change', () => {
-                faxNotice.classList.toggle('visible', radio.value === 'school');
-                updatePreview();
-            });
+        logoRadios.forEach(radio => {
+            radio.addEventListener('change', updatePreview);
         });
 
         // Handle browser autofill (which doesn't always trigger input events)
@@ -552,9 +522,9 @@
         setTimeout(updatePreview, 500);
         document.addEventListener('DOMContentLoaded', updatePreview);
 
-        function getSelectedLocation() {
-            const selected = document.querySelector('input[name="location"]:checked');
-            return selected ? selected.value : 'church';
+        function getSelectedLogo() {
+            const selected = document.querySelector('input[name="logo"]:checked');
+            return CONFIG.logos[selected ? selected.value : 'anniversary'];
         }
 
         function generateSignatureHTML() {
@@ -565,30 +535,28 @@
             const position = inputs.position.value.trim();
             const extension = inputs.extension.value.trim();
             const email = inputs.email.value.trim();
-            const location = getSelectedLocation();
-            const loc = CONFIG.locations[location];
+            const logo = getSelectedLogo();
+            const school = CONFIG.school;
 
             const fullName = [honorific, firstName, lastName].filter(Boolean).join(' ');
             const nameWithCreds = credentials ? `${fullName}, ${credentials}` : fullName;
-            const phoneWithExt = extension ? `${loc.phone} ext. ${extension}` : loc.phone;
+            const phoneWithExt = extension ? `${school.phone} ext. ${extension}` : school.phone;
 
             // Build websites HTML
-            const websitesHTML = CONFIG.websites.map(w => 
+            const websitesHTML = CONFIG.websites.map(w =>
                 `<a href="${w.url}" target="_blank" style="color:${CONFIG.primaryColor};text-decoration:none;">${w.display}</a>`
             ).join(' | ');
 
             // Build social icons HTML
-            const socialHTML = `
-                <a href="${CONFIG.socials.facebook}" target="_blank" style="text-decoration:none;margin-right:8px;"><img src="${SOCIAL_ICONS.facebook}" alt="Facebook" width="20" height="20" style="border:0;vertical-align:middle;"></a>
-                <a href="${CONFIG.socials.instagram}" target="_blank" style="text-decoration:none;margin-right:8px;"><img src="${SOCIAL_ICONS.instagram}" alt="Instagram" width="20" height="20" style="border:0;vertical-align:middle;"></a>
-                <a href="${CONFIG.socials.youtube}" target="_blank" style="text-decoration:none;"><img src="${SOCIAL_ICONS.youtube}" alt="YouTube" width="20" height="20" style="border:0;vertical-align:middle;"></a>
-            `;
+            const socialHTML = Object.entries(CONFIG.socials).map(([name, s], i, arr) =>
+                `<a href="${s.url}" target="_blank" style="text-decoration:none;${i < arr.length - 1 ? 'margin-right:8px;' : ''}"><img src="${s.icon}" alt="${name.charAt(0).toUpperCase() + name.slice(1)}" width="20" height="20" style="border:0;vertical-align:middle;"></a>`
+            ).join('\n                ');
 
             return `
 <table cellpadding="0" cellspacing="0" border="0" style="font-family:Arial,sans-serif;font-size:14px;line-height:1.5;color:#333333;">
     <tr>
         <td style="padding-right:15px;vertical-align:top;border-right:3px solid ${CONFIG.goldColor};">
-            <img src="${CONFIG.logoUrl}" alt="St. Edward Church & School" width="100" style="display:block;border:0;">
+            <img src="${logo.url}" alt="Kellenberg Memorial High School" width="${logo.width}" style="display:block;border:0;">
         </td>
         <td style="padding-left:15px;vertical-align:top;">
             <table cellpadding="0" cellspacing="0" border="0">
@@ -599,20 +567,19 @@
                 </tr>
                 ${position ? `<tr><td style="color:#333333;padding-bottom:6px;">${position}</td></tr>` : ''}
                 <tr>
-                    <td style="font-weight:bold;color:${CONFIG.primaryColor};padding-bottom:2px;">St. Edward Church & School</td>
+                    <td style="font-weight:bold;color:${CONFIG.primaryColor};padding-bottom:2px;">Kellenberg Memorial High School</td>
                 </tr>
                 <tr>
-                    <td style="color:#666666;font-size:13px;">${loc.address}</td>
+                    <td style="color:#666666;font-size:13px;">${school.address}</td>
                 </tr>
                 <tr>
-                    <td style="color:#666666;font-size:13px;padding-bottom:6px;">${loc.cityStateZip}</td>
+                    <td style="color:#666666;font-size:13px;padding-bottom:6px;">${school.cityStateZip}</td>
                 </tr>
                 <tr>
                     <td style="font-size:13px;">
-                        <strong>P:</strong> <a href="tel:${loc.phone.replace(/[^\d]/g, '')}" target="_blank" style="color:#333333;text-decoration:none;">${phoneWithExt}</a>
+                        <strong>P:</strong> <a href="tel:${school.phone.replace(/[^\d]/g, '')}" target="_blank" style="color:#333333;text-decoration:none;">${phoneWithExt}</a>
                     </td>
                 </tr>
-                ${loc.fax ? `<tr><td style="font-size:13px;"><strong>F:</strong> ${loc.fax}</td></tr>` : ''}
                 ${email ? `<tr><td style="font-size:13px;"><strong>E:</strong> <a href="mailto:${email}" target="_blank" style="color:${CONFIG.primaryColor};text-decoration:none;">${email}</a></td></tr>` : ''}
                 <tr>
                     <td style="font-size:13px;padding-bottom:8px;">
@@ -639,21 +606,19 @@
             const position = inputs.position.value.trim();
             const extension = inputs.extension.value.trim();
             const email = inputs.email.value.trim();
-            const location = getSelectedLocation();
-            const loc = CONFIG.locations[location];
+            const school = CONFIG.school;
 
             const fullName = [honorific, firstName, lastName].filter(Boolean).join(' ');
             const nameWithCreds = credentials ? `${fullName}, ${credentials}` : fullName;
-            const phoneWithExt = extension ? `${loc.phone} ext. ${extension}` : loc.phone;
+            const phoneWithExt = extension ? `${school.phone} ext. ${extension}` : school.phone;
 
             let lines = ['--'];
             if (nameWithCreds) lines.push(nameWithCreds);
             if (position) lines.push(position);
-            lines.push('St. Edward Church & School');
-            lines.push(loc.address);
-            lines.push(loc.cityStateZip);
+            lines.push('Kellenberg Memorial High School');
+            lines.push(school.address);
+            lines.push(school.cityStateZip);
             lines.push(`P: ${phoneWithExt}`);
-            if (loc.fax) lines.push(`F: ${loc.fax}`);
             if (email) lines.push(`E: ${email}`);
             lines.push(`W: ${CONFIG.websites.map(w => w.display).join(' | ')}`);
 
@@ -674,7 +639,7 @@
 
             const range = document.createRange();
             range.selectNodeContents(hiddenDiv);
-            
+
             const selection = window.getSelection();
             selection.removeAllRanges();
             selection.addRange(range);
